@@ -11,7 +11,7 @@ st.markdown(load_styles(), unsafe_allow_html=True)
 st.title("🏗️ TradeLead AI")
 st.subheader("Lead handling for construction businesses")
 
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai.api_key = st.secrets.get("OPENAI_API_KEY", "")
 
 # Load data
 df = pd.read_csv("data/leads.csv")
