@@ -3,8 +3,7 @@ import json
 
 def extract_lead_info(message):
     prompt = f"""
-Extract the following details from this construction enquiry.
-If unknown, return an empty string.
+Extract details from this construction enquiry.
 
 Return JSON ONLY in this format:
 {{
@@ -22,27 +21,23 @@ Message:
         max_tokens=100
     )
 
-    content = response.choices[0].message.content.strip()
-
     try:
-        return json.loads(content)
+        return json.loads(response.choices[0].message.content.strip())
     except:
         return {"name": "", "job_type": "", "location": ""}
 
 
 def generate_reply(message):
     prompt = f"""
-You are an assistant for a construction business.
-Write a short, professional reply to this enquiry:
+You are a professional construction contractor.
+Reply clearly and briefly to this enquiry:
 
 "{message}"
 
 Ask for:
 - job details
-- site location
-- preferred time
-
-Keep it practical and friendly.
+- location
+- best time to call
 """
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
@@ -53,5 +48,7 @@ Keep it practical and friendly.
 
 
 def generate_followup(name):
-    return f"Hi {name}, just following up to see if you still need help with the job. Let me know 👍"
+    name = name if name else "there"
+    return f"Hi {name}, just checking in to see if you still need help with the job. Let me know 👍"
+
 
