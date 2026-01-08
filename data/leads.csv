@@ -1,3 +1,6 @@
-Name,Phone,JobType,Location,Message,Status
-Mike,+27821234567,Roof Repair,Johannesburg,"Need roof fixed urgently",New
-Sarah,+27761239876,Tiling,Pretoria,"Bathroom tiling quote",New
+Name,Phone,JobType,Location,Message,Status,LastContacted
+Mike Johnson,+15551234567,Roofing,Austin TX,"Hi, I need roof repairs on my house after the last storm. Can you help?",New,
+Sarah Miller,+15557654321,Tiling,Phoenix AZ,"Looking to tile a small bathroom. Do you offer free estimates?",Replied,2026-01-05T10:30:00
+John Davis,+15559871234,Building,Dallas TX,"Need a quote for a home extension, around 400 sq ft.",Follow-up,2026-01-03T15:45:00
+Emily Carter,+15553498765,Renovation,San Diego CA,"Planning a kitchen renovation. Timeline is flexible.",Won,2026-01-01T09:10:00
+Unknown,+15558776655,Plumbing,Orlando FL,"Urgent — burst pipe under kitchen sink. Please call ASAP.",New,
