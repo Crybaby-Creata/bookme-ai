@@ -2,14 +2,18 @@ from openai import OpenAI
 
 client = OpenAI()
 
-def generate_reply(message):
-    prompt = f"""
-You are a professional construction business owner.
-Reply politely, clearly, and briefly to this customer enquiry:
+def generate_reply(message: str) -> str:
+    if not message:
+        return "Hi, thanks for reaching out. Can you please share more details about the job?"
 
+    prompt = f"""
+You are a professional US construction contractor.
+Write a short, polite, and clear reply to this customer enquiry.
+
+Customer message:
 "{message}"
 
-Offer to provide a quote or next steps.
+Ask for next steps or offer a quote.
 """
 
     response = client.chat.completions.create(
@@ -21,4 +25,3 @@ Offer to provide a quote or next steps.
     )
 
     return response.choices[0].message.content.strip()
-
