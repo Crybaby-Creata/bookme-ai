@@ -102,8 +102,10 @@ st.divider()
 st.markdown("## 🔁 Follow-Up")
 
 if lead.LastContacted:
+   last = None
+if isinstance(lead.LastContacted, str) and lead.LastContacted.strip():
     last = datetime.fromisoformat(lead.LastContacted)
-    days = (datetime.now() - last).days
+
 else:
     days = 99
 
